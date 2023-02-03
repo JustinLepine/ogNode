@@ -1,7 +1,7 @@
 const Product = require('../models/productModel');
 
 // Gets all Products
-// Route: /api/products
+// Route: GET /api/products
 async function getProducts(req, res) {
   try {
     const products = await Product.findAll();
@@ -14,7 +14,7 @@ async function getProducts(req, res) {
 }
 
 // Get a single Product
-// Route: /api/product/:id
+// Route: GET /api/product/:id
 async function getProduct(req, res, id) {
   try {
     const product = await Product.findById(id);
@@ -31,7 +31,27 @@ async function getProduct(req, res, id) {
   }
 }
 
+// Create a Product
+// Route: POST /api/products
+async function createProduct(req, res) {
+  try {
+    const product = {
+      title: 'Test Product',
+      description: 'This is a new product',
+      price: 100
+    }
+
+    const newProduct = Product.create(product);
+
+    res.writeHead(201, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(newProduct));
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getProducts,
-  getProduct
+  getProduct,
+  createProduct
 }
