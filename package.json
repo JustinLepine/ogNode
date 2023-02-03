@@ -1,0 +1,19 @@
+{
+  "name": "ognode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JustinLepine/ogNode.git"
+  },
+  "author": "justin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JustinLepine/ogNode/issues"
+  },
+  "homepage": "https://github.com/JustinLepine/ogNode#readme"
+}
