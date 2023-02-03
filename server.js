@@ -1,9 +1,15 @@
 const http = require('http');
-const products = require('./data/products')
+const { getProducts } = require('./controllers/productController')
+
 
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json'});
-  res.end(JSON.stringify(products));
+  if(req.url === '/api/products' && req.method === 'GET') {
+    getProducts()
+  } else {
+    res.writeHead(404, { 'Content-Type': 'application/json'});
+    res.end(JSON.stringify({ message: 'Route Not Found'}));
+  }
+
 });
 
 const PORT = process.env.PORT | 8600;
